@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace Task4
 {
@@ -65,15 +65,22 @@ namespace Task4
             throw new Exception("The notion of 'more' and 'less' for complex numbers makes no sense");
         }
 
-        public INumber Divide(INumber iNumber)
+        private ComplexNumber ComplexСonjugate()
+        {
+            return new ComplexNumber(Real, -Imaginary);
+        }
+        
+        public INumber Divide(INumber other)
         {
             //a+bi
             //c+di
-            //((ac + bd) / (c^2 + d^2)) + ((bc - ad) / (c^2 + d^2)i
-            ComplexNumber second = iNumber as ComplexNumber;
-            double realRez = (Real * second.Real + Imaginary * second.Imaginary) / (Math.Pow(second.Real, 2) + Math.Pow(second.Imaginary, 2));
-            double imagineryRez = (Imaginary * second.Real - Real * second.Imaginary) / (Math.Pow(second.Real, 2) + Math.Pow(second.Imaginary, 2));
-            return new ComplexNumber(realRez, imagineryRez);
+            // (a+bi)*(conj)/((c+bi)*conj);
+            INumber first = this;
+            ComplexNumber second = other as ComplexNumber;
+            INumber conjugatedDenominator = second.ComplexСonjugate();
+            second = (ComplexNumber) second.Multiply(conjugatedDenominator);
+            first = first.Multiply(conjugatedDenominator).Multiply(new RealNumber(second.Real));
+            return first;
         }
 
         public void FormatInput()

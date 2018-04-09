@@ -2,7 +2,7 @@
 
 namespace Task4
 {
-    interface INumber : ICloneable, IComparable<INumber>
+    public interface INumber : ICloneable, IComparable<INumber>, IInputOutput
     {
         INumber Add(INumber iNumber);
 

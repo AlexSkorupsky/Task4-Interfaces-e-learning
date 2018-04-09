@@ -2,7 +2,7 @@
 
 namespace Task4
 {
-    class RealNumber : INumber, IInputOutput
+    public class RealNumber : INumber
     {
         private double number;
 

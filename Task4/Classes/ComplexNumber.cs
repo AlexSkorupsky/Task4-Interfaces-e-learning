@@ -2,7 +2,7 @@ using System;
 
 namespace Task4
 {
-    class ComplexNumber : INumber, IInputOutput
+    public class ComplexNumber : INumber
     {
         private double real;
 
@@ -95,7 +95,7 @@ namespace Task4
 
         public void FormatOutput()
         {
-            Console.WriteLine("Complex number: {0}", this.ToString());
+            Console.WriteLine("Complex number: {0}", this);
         }
 
         public INumber Multiply(INumber iNumber)

@@ -2,7 +2,7 @@
 
 namespace Task4
 {
-    interface IInputOutput
+    public interface IInputOutput
     {
         void FormatInput();
 

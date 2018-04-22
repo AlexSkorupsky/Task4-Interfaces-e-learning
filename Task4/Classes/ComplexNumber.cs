@@ -104,7 +104,8 @@ namespace Task4
             //c+di
             //(ac - bd) + (ad + bc)i
             ComplexNumber second = iNumber as ComplexNumber;
-            return new ComplexNumber(Real * second.Real - Imaginary * second.Imaginary, Real * second.Imaginary + Imaginary * second.Real);
+            ComplexNumber result = new ComplexNumber(Real * second.Real - Imaginary * second.Imaginary, Real * second.Imaginary + Imaginary * second.Real);
+            return result;
         }
 
         public INumber Subtract(INumber iNumber)

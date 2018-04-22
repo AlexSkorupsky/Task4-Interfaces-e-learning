@@ -11,11 +11,12 @@ namespace Task4
             var arrReal = new RealNumber[2];
             InputArr(arrReal, TypeNumber.Real);
             OutputArr(arrReal);
-            var arrComplex = new ComplexNumber[2];
-            InputArr(arrComplex, TypeNumber.Complex);
-            OutputArr(arrComplex);
-            CheckResults(arrReal, TypeNumber.Real);
-            CheckResults(arrComplex, TypeNumber.Complex);
+
+            //var arrComplex = new ComplexNumber[2];
+            //InputArr(arrComplex, TypeNumber.Complex);
+            //OutputArr(arrComplex);
+            //CheckResults(arrReal, TypeNumber.Real);
+            //CheckResults(arrComplex, TypeNumber.Complex);
             OutputSortClonedNumbers();
             Console.ReadKey();
         }
@@ -53,7 +54,7 @@ namespace Task4
             }
             else
             {
-                data = TypeNumber.Complex;
+                throw new Exception("This notions makes no sense for complex numbers");
             }
             Task obj = new Task();
             Console.WriteLine("Sum of {0}: {1}", data,obj.Sum(arr));
@@ -61,13 +62,18 @@ namespace Task4
             Console.WriteLine("Arithmetical mean of {0}: {1}", data, obj.ArithmeticMean(arr));
         }
         
+        public static void GenerateNumbers(INumber[] arr)
+        {
+            for (var i = 0; i < 10; ++i)
+            {
+                arr[i] = new RealNumber(-i);
+            }
+        }
+
         public static void OutputSortClonedNumbers()
         {
             RealNumber[] arr = new RealNumber[10];
-            for (var i = 0; i < 10; ++i)
-            {
-                arr[i] = new RealNumber(i*i-2*i-4);
-            }
+            GenerateNumbers(arr);
             RealNumber[] arr2 = (RealNumber[]) arr.Clone();
             Array.Sort(arr2);
 

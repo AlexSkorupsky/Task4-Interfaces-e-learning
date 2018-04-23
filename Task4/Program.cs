@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace Task4
 {
@@ -11,13 +11,17 @@ namespace Task4
             var arrReal = new RealNumber[2];
             InputArr(arrReal, TypeNumber.Real);
             OutputArr(arrReal);
+            RealNumber[] arr = new RealNumber[10];
+            GenerateNumbers(arr);
+            RealNumber[] arr2 = (RealNumber[]) arr.Clone();
+            Array.Sort(arr2);
 
-            //var arrComplex = new ComplexNumber[2];
-            //InputArr(arrComplex, TypeNumber.Complex);
-            //OutputArr(arrComplex);
-            //CheckResults(arrReal, TypeNumber.Real);
-            //CheckResults(arrComplex, TypeNumber.Complex);
-            OutputSortClonedNumbers();
+            Console.WriteLine("Sorted cloned array: ");
+            foreach (var it in arr2)
+            {
+                it.FormatOutput();
+            }
+            CheckResults(arrReal, TypeNumber.Real);
             Console.ReadKey();
         }
 
@@ -41,7 +45,7 @@ namespace Task4
         {
             for(var i = 0; i < arr.Length; i++)
             {
-                arr[i].FormatInput();
+                arr[i].FormatOutput();
             }
         }
         
@@ -70,18 +74,5 @@ namespace Task4
             }
         }
 
-        public static void OutputSortClonedNumbers()
-        {
-            RealNumber[] arr = new RealNumber[10];
-            GenerateNumbers(arr);
-            RealNumber[] arr2 = (RealNumber[]) arr.Clone();
-            Array.Sort(arr2);
-
-            Console.WriteLine("Sorted cloned array: ");
-            foreach (var it in arr2)
-            {
-                it.FormatOutput();
-            }
-        }
     }
 }

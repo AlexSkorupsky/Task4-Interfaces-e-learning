@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Task4;
 using NUnit.Framework;
 
@@ -71,16 +71,6 @@ namespace TaskUnitTest
             a = a.Add(b) as ComplexNumber;
             Assert.True(a.CompareTo(c) == 0);
         }
-
-//        [Test]
-//        public void TestComplexNumberDivide()
-//        {
-//            ComplexNumber a = new ComplexNumber(9, 2);
-//            ComplexNumber b = new ComplexNumber(15, 3);
-//            ComplexNumber c = new ComplexNumber(20, 5);
-//            b = b.Divide(a) as ComplexNumber;
-//            Assert.Equals(b, c);
-//        }
         
         [Test]
         public void TestComplexNumberMultiply()
@@ -130,30 +120,6 @@ namespace TaskUnitTest
         }
         
         [Test]
-        public void TestTaskProductOfReal()
-        {
-            Task obj = new Task();
-            RealNumber[] arrReal = new RealNumber[2];
-            arrReal[0] = new RealNumber(10);
-            arrReal[1] = new RealNumber(17);
-            var real = new RealNumber(170);
-            var res = obj.Product(arrReal) as RealNumber;
-            Assert.True(res.CompareTo(real) == 0);
-        }
-        
-        [Test]
-        public void TestTaskArithmeticMeanOfReal()
-        {
-            Task obj = new Task();
-            RealNumber[] arrReal = new RealNumber[2];
-            arrReal[0] = new RealNumber(10);
-            arrReal[1] = new RealNumber(16);
-            var real = new RealNumber(13);
-            var res = obj.ArithmeticMean(arrReal) as RealNumber;
-            Assert.True(res.CompareTo(real) == 0);
-        }
-        
-        [Test]
         public void TestTaskSumOfComplex()
         {
             Task obj = new Task();
@@ -164,29 +130,6 @@ namespace TaskUnitTest
             var res = obj.Sum(arrComplex) as ComplexNumber;
             Assert.True(res.CompareTo(complex) == 0);
         }
-        
-        [Test]
-        public void TestTaskProductOfComplex()
-        {
-            Task obj = new Task();
-            ComplexNumber[] arrComplex = new ComplexNumber[2];
-            arrComplex[0] = new ComplexNumber(5, 2);
-            arrComplex[1] = new ComplexNumber(15, 3);
-            var res = obj.Product(arrComplex) as ComplexNumber;
-            Assert.True(res.ToString() == "69+45i");
-        }
-        
-        [Test]
-        public void TestTaskArithmeticMeanOfComplex()
-        {
-            Task obj = new Task();
-            ComplexNumber[] arrComplex = new ComplexNumber[2];
-            arrComplex[0] = new ComplexNumber(10, 2);
-            arrComplex[1] = new ComplexNumber(16, 4);
-            var complex = new ComplexNumber(13, 3);
-            var res = obj.ArithmeticMean(arrComplex) as ComplexNumber;
-            Assert.True(res.CompareTo(complex) == 0);
-        }
-        
+       
     }
 }
